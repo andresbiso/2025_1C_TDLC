@@ -11,8 +11,3 @@ El objetivo del siguiente trabajo práctico es el análisis de las característi
 
 - Como función de prueba se podrá utilizar un tren de impulsos de módulo variable equiespaciados o cualquier función que considere aplicable.
 - Se deberán comparar al menos tres implementaciones de FFT.
-
-# Recursos
-
-- [Divide and Conquer: Fast Fourier Transform](https://www.cs.toronto.edu/~bor/373s20/docs/demaine-fft.pdf)
-- https://en.wikipedia.org/wiki/Dirac_comb
