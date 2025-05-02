@@ -44,11 +44,22 @@ deactivate
 
 Recomiendo utilizar [homebrew](https://brew.sh/) para instalar estos paquetes:
 
-- [python@3.13](https://docs.brew.sh/Homebrew-and-Python#python-3)
+- [tcl-tk](https://formulae.brew.sh/formula/tcl-tk#default)
+```bash
+brew install tcl-tk
+```
 
+- [python@3.13](https://formulae.brew.sh/formula/python@3.13#default)
 ```bash
 brew install python@3.13
 ```
+
+- [python-tk@3.9](https://formulae.brew.sh/formula/python-tk@3.9)
+```bash
+brew install python-tk@3.9
+```
+
+Homebrew Python: https://docs.brew.sh/Homebrew-and-Python#python-3
 
 - [pycharm-ce](https://formulae.brew.sh/cask/pycharm-ce#default)
 
