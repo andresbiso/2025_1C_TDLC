@@ -77,7 +77,7 @@ import tensorflow as tf
 import torch
 import timeit
 import json
-
+import matplotlib.pyplot as plt
 
 # Function to generate 2D signals with noise
 def generate_signal(size):
@@ -173,3 +173,36 @@ with open('fft_results.json', 'w') as f:
     results_copy['sizes'] = sizes
     json.dump(results_copy, f, indent=4)
     print("Results saved to fft_results.json")
+
+# Load results and plot FFT execution times
+with open('fft_results.json', 'r') as f:
+    results = json.load(f)
+
+# Extract FFT execution times
+fft_times = {
+    "SciPy": results["scipy_fft_time"],
+    "NumPy": results["numpy_fft_time"],
+    "TensorFlow": results["tf_fft_time"],
+    "OpenCV": results["cv2_fft_time"],
+    "PyTorch": results["torch_fft_time"],
+}
+
+# Plot execution times
+plt.figure(figsize=(10, 6))
+
+for lib, times in fft_times.items():
+    plt.plot(sizes, times, marker='o', label=lib)
+
+plt.xlabel("Tamaño de la Señal")
+plt.ylabel("FFT - Tiempo de Ejecución (en segundos)")
+plt.title("FFT - Tiempo de Ejecución vs Tamaño de la Señal")
+plt.legend()
+plt.grid()
+plt.xscale("log")  # Log scale for better visualization
+plt.yscale("log")
+
+# Save the plot as an image file
+plt.savefig("fft_execution_times.png", dpi=300, bbox_inches="tight")
+# plt.show()
+print("Plot saved as fft_execution_times.png")
+
