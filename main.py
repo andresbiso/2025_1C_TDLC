@@ -94,13 +94,13 @@ if __name__ == "__main__":
             resultados[clave].append(resultado[clave])
         print(f"Completado tamaño: {tamano}")
 
-    with open('results/fft_results.json', 'w') as archivo:
+    with open('fft_results.json', 'w') as archivo:
         copia_resultados = {k: [float(x) for x in v] for k, v in resultados.items()}
         copia_resultados['sizes'] = tamanos
         json.dump(copia_resultados, archivo, indent=4)
         print("Resultados guardados en fft_results.json")
 
-    with open('results/fft_results.json', 'r') as archivo:
+    with open('fft_results.json', 'r') as archivo:
         resultados = json.load(archivo)
 
     tiempos_fft = {
