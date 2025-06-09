@@ -49,53 +49,72 @@ Recomiendo utilizar [homebrew](https://brew.sh/) para instalar estos paquetes:
 brew install tcl-tk
 ```
 
-- [python@3.13](https://formulae.brew.sh/formula/python@3.13#default)
+- [pyenv](https://formulae.brew.sh/formula/pyenv#default)
 ```bash
-brew install python@3.13
+brew install pyenv
 ```
-
-- [python-tk@3.9](https://formulae.brew.sh/formula/python-tk@3.9)
-```bash
-brew install python-tk@3.9
-```
-
-Homebrew Python: https://docs.brew.sh/Homebrew-and-Python#python-3
 
 - [pycharm-ce](https://formulae.brew.sh/cask/pycharm-ce#default)
 
-```
+```bash
 brew install --cask pycharm-ce
 ```
 
+## Instalar Python
+- Seguir pasos (A a E) para macos y zsh: https://github.com/pyenv/pyenv#b-set-up-your-shell-environment-for-pyenv
+- Agregar el alias opcional del paso A a ~/.zshrc.
+- Instalar la versión de tcl-tk mencionada más arriba. No instalar la versión 8 que menciona la guía.
+
+```bash
+pyenv install 3.12
+pyenv global 3.12
+```
+
+> [!NOTE]
+> Hacemos uso de esta versión de python por ser la que tiene mejor compatibilidad con los paquetes al momento
+> del desarrollo de esta aplicación.
+
+En caso de no poder hacer el link de python, ejecutar los siguientes comandos:
+```bash
+brew cleanup
+brew doctor
+```
+Esto elimina symlinks que estén rotos y revisa si hay problemas.
+
+
 ## Paquetes pip
 
-Recomiendo utilizar la versión de pip que viene incluído en la versión de python3 (pip3) para instalar los siguientes paquetes:
-
-- [pytest](https://pypi.org/project/pytest/)
-
-```
-pip install -Iv pytest==8.3.5
-```
+> [!NOTE]
+> Recomiendo utilizar la versión de pip que viene incluída en la versión de python3 (pip3).
 
 ### pip comandos
 
+- Crear ambiente virtual:
+```bash
+python -m venv .venv
+```
+
+- Activar ambiente virtual:
+```bash
+source .venv/bin/activate
+echo $VIRTUAL_ENV
+```
+
 - Instalar paquetes de requirements.txt:
 
-```
-python -m venv tdlc-venv
-tadp-venv\Scripts\activate
+```bash
 pip install -r requirements.txt
 ```
 
 - Desinstalar paquetes de requirements.txt:
 
-```
+```bash
 pip uninstall -r requirements.txt -y
 ```
 
 - Extraer paquetes instalados a requirements.txt:
 
-```
+```bash
 pip freeze > requirements.txt
 ```
 
